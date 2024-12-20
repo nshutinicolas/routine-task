@@ -16,13 +16,21 @@ struct TaskItem: Identifiable {
 }
 
 struct TaskDetails: View {
+	@Environment(\.dismiss) var dismiss
 	@State private var showAddToListSheet: Bool = false
+	
+	private let title: String
+	
 	private let mockTaskItems: [TaskItem] = [
 		.init(images: ["hydration", "drinks"], title: "Drink a Glass of Water", description: "Start with a full glass to rehydrate after sleep", benefits: ["Hydration", "Health"]),
 		.init(title: "Deep Breathing Exercise", description: "Practice deep breathinh for 5 minutes"),
 		.init(title: "10-15 minutes of light exercise to energize", description: ""),
 		.init(title: "Short Walk or Jog", description: "Go outside for fresh air and movement", benefits: ["Outdoor", "Movement"])
 	]
+	
+	init(title: String) {
+		self.title = title
+	}
 	
     var body: some View {
 		VStack(spacing: 0) {
@@ -151,8 +159,11 @@ struct TaskDetails: View {
 	var header: some View {
 		HStack(spacing: 4) {
 			Image(systemName: "chevron.left")
+				.onTapGesture {
+					dismiss()
+				}
 			
-			Text("DETAILED MORNING ROUTINE TASKS")
+			Text(title)
 				.font(.karlRegular(size: 14))
 				.frame(maxWidth: .infinity, alignment: .leading)
 			Button {
@@ -254,5 +265,5 @@ extension View {
 }
 
 #Preview {
-    TaskDetails()
+    TaskDetails(title: "DETAILED MORNING ROUTINE TASKS")
 }

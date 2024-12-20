@@ -19,3 +19,11 @@ struct Routine_TaskApp: App {
         }
     }
 }
+
+/// Hide navigation bar for all navigation stacks
+extension UINavigationController {
+	open override func viewWillLayoutSubviews() {
+		super.viewWillLayoutSubviews()
+		navigationBar.isHidden = true
+	}
+}

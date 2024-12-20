@@ -13,6 +13,7 @@ struct TaskModel: Hashable {
 }
 
 struct HomeView: View {
+	@EnvironmentObject private var coordinator: AppCoordinator
 	private var mockTasks: [TaskModel] = [
 		.init(image: "image-1", title: "DETAILED MORNING ROUTINE TASKS"),
 		.init(image: "image-2", title: "DAILY WORKDAY FOCUS GOALS AND TASKS TO KEEP YOU ON TRACK"),
@@ -23,16 +24,25 @@ struct HomeView: View {
     var body: some View {
 		VStack(spacing: 0) {
 			header
-				.padding(.horizontal)
 			
-			List {
-				ForEach(mockTasks, id: \.hashValue) { task in
-					TaskItemView(for: task)
+			ScrollView {
+				LazyVStack(spacing: 12) {
+					ForEach(mockTasks, id: \.hashValue) { task in
+						TaskItemView(for: task)
+							.onTapGesture {
+								coordinator.path.append(task)
+							}
+					}
 				}
+				.padding(.top)
 			}
-			.listStyle(.plain)
+			.scrollIndicators(.hidden)
 		}
+		.padding(.horizontal)
 		.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+		.navigationDestination(for: TaskModel.self) { item in
+			TaskDetails(title: item.title)
+		}
     }
 	
 	var header: some View {
@@ -44,6 +54,7 @@ struct HomeView: View {
 		.frame(maxWidth: .infinity)
 		.overlay(alignment: .bottom) {
 			Divider()
+				.padding(.bottom, 1)
 		}
 	}
 	
@@ -64,10 +75,10 @@ struct HomeView: View {
 		.frame(maxWidth: .infinity, alignment: .leading)
 		.background(.skyBlue.opacity(0.15))
 		.clipShape(.rect(cornerRadius: 6))
-		.listRowSeparator(.hidden)
 	}
 }
 
 #Preview {
     HomeView()
+		.environmentObject(AppCoordinator())
 }
