@@ -16,6 +16,10 @@
 		6C7086B42D153109000F8420 /* Karl-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6C7086AF2D153109000F8420 /* Karl-Bold.otf */; };
 		6C7086B52D153109000F8420 /* Cardo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C7086B02D153109000F8420 /* Cardo-Bold.ttf */; };
 		6C7086B62D153109000F8420 /* Karl-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6C7086B12D153109000F8420 /* Karl-Regular.otf */; };
+		6C7086B92D15337E000F8420 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7086B82D15337E000F8420 /* HomeView.swift */; };
+		6C7086BC2D1533A0000F8420 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7086BB2D1533A0000F8420 /* AppView.swift */; };
+		6C7086BF2D153B0E000F8420 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7086BE2D153B0E000F8420 /* Font+Extension.swift */; };
+		6C7086C22D1541B8000F8420 /* TaskDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7086C12D1541B8000F8420 /* TaskDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,10 @@
 		6C7086B02D153109000F8420 /* Cardo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cardo-Bold.ttf"; sourceTree = "<group>"; };
 		6C7086B12D153109000F8420 /* Karl-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karl-Regular.otf"; sourceTree = "<group>"; };
 		6C7086B72D15316B000F8420 /* Routine-Task-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Routine-Task-Info.plist"; sourceTree = SOURCE_ROOT; };
+		6C7086B82D15337E000F8420 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		6C7086BB2D1533A0000F8420 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		6C7086BE2D153B0E000F8420 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
+		6C7086C12D1541B8000F8420 /* TaskDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,10 +70,14 @@
 		6C70869D2D153043000F8420 /* Routine Task */ = {
 			isa = PBXGroup;
 			children = (
-				6C7086B72D15316B000F8420 /* Routine-Task-Info.plist */,
+				6C7086C02D1541A1000F8420 /* TaskDetails */,
+				6C7086BD2D153AFA000F8420 /* Extensions */,
+				6C7086BA2D15338C000F8420 /* App */,
+				6C7086B82D15337E000F8420 /* HomeView.swift */,
 				6C7086AC2D1530A5000F8420 /* Fonts */,
 				6C70869E2D153043000F8420 /* Routine_TaskApp.swift */,
 				6C7086A02D153043000F8420 /* ContentView.swift */,
+				6C7086B72D15316B000F8420 /* Routine-Task-Info.plist */,
 				6C7086A22D153045000F8420 /* Assets.xcassets */,
 				6C7086A42D153045000F8420 /* Preview Content */,
 			);
@@ -90,6 +102,30 @@
 				6C7086B12D153109000F8420 /* Karl-Regular.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		6C7086BA2D15338C000F8420 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				6C7086BB2D1533A0000F8420 /* AppView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		6C7086BD2D153AFA000F8420 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6C7086BE2D153B0E000F8420 /* Font+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		6C7086C02D1541A1000F8420 /* TaskDetails */ = {
+			isa = PBXGroup;
+			children = (
+				6C7086C12D1541B8000F8420 /* TaskDetails.swift */,
+			);
+			path = TaskDetails;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,8 +203,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C7086BC2D1533A0000F8420 /* AppView.swift in Sources */,
+				6C7086BF2D153B0E000F8420 /* Font+Extension.swift in Sources */,
+				6C7086B92D15337E000F8420 /* HomeView.swift in Sources */,
 				6C7086A12D153043000F8420 /* ContentView.swift in Sources */,
 				6C70869F2D153043000F8420 /* Routine_TaskApp.swift in Sources */,
+				6C7086C22D1541B8000F8420 /* TaskDetails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,7 +267,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -284,7 +324,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -310,6 +350,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -339,6 +380,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct Routine_TaskApp: App {
+	
+	@StateObject private var coordinator = AppCoordinator()
+	
     var body: some Scene {
         WindowGroup {
             ContentView()
+				.environmentObject(coordinator) // Registering App coordinator
         }
     }
 }
