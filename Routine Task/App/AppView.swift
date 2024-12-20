@@ -19,9 +19,9 @@ enum Tab: String, CaseIterable {
 	
 	var icon: String {
 		switch self {
-		case .home: return "house"
-		case .list: return "checklist"
-		case .profile: return "person"
+		case .home: return "home-icon"
+		case .list: return "list-check"
+		case .profile: return "user-icon"
 		}
 	}
 }
@@ -53,8 +53,8 @@ struct AppView: View {
 							}
 					}
 				}
-				.padding(.vertical)
-				.padding(.horizontal, 16)
+				.padding(.vertical, 7)
+				.padding(.horizontal, 19)
 				.background(.skyBlue.opacity(0.3))
 				.clipShape(.capsule)
 			}
@@ -64,10 +64,12 @@ struct AppView: View {
 	// TODO: Fix Tab animation
 	@ViewBuilder
 	private func TabItem(tab: Tab) -> some View {
-		Image(systemName: tab.icon)
-			.font(.title3)
+		Image(tab.icon)
+			.resizable()
+			.renderingMode(.template)
+			.frame(width: 25, height: 25)
 			.foregroundStyle(.white)
-			.padding()
+			.padding(14)
 			.background {
 				if selectedTab == tab  {
 					Circle()

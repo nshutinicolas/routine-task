@@ -26,7 +26,7 @@ struct HomeView: View {
 			header
 			
 			ScrollView {
-				LazyVStack(spacing: 12) {
+				LazyVStack(spacing: 16) {
 					ForEach(mockTasks, id: \.hashValue) { task in
 						TaskItemView(for: task)
 							.onTapGesture {
@@ -34,11 +34,11 @@ struct HomeView: View {
 							}
 					}
 				}
-				.padding(.top)
+				.padding(.top, 20)
 			}
 			.scrollIndicators(.hidden)
 		}
-		.padding(.horizontal)
+		.padding(.horizontal, 20)
 		.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
 		.navigationDestination(for: TaskModel.self) { item in
 			TaskDetails(title: item.title)
@@ -60,7 +60,7 @@ struct HomeView: View {
 	
 	@ViewBuilder
 	private func TaskItemView(for task: TaskModel) -> some View {
-		HStack {
+		HStack(spacing: 16) {
 			Rectangle()
 				.fill(Color.clear)
 				.frame(width: 92, height: 92)
@@ -70,7 +70,8 @@ struct HomeView: View {
 				}
 			Text(task.title)
 				.font(.karlRegular(size: 14))
-				.padding(.horizontal, 5)
+				.padding(.trailing, 15)
+				.frame(maxWidth: .infinity, alignment: .leading)
 		}
 		.frame(maxWidth: .infinity, alignment: .leading)
 		.background(.skyBlue.opacity(0.15))
