@@ -188,6 +188,7 @@ struct TaskDetails: View {
 		VStack {
 			HStack {
 				Text("MY LISTS")
+					.font(.karlRegular(size: 14))
 					.frame(maxWidth: .infinity, alignment: .leading)
 				Image(systemName: "xmark")
 					.font(.caption)
@@ -201,66 +202,55 @@ struct TaskDetails: View {
 			}
 			.padding(.top, 16)
 			ScrollView {
-				HStack {
-					Image(systemName: "plus")
-						.font(.body)
-						.frame(width: 58, height: 55)
-						.cornerRadius(6)
-						.background(.buttonBlue.opacity(0.05))
-					Text("ADD TO NEW LIST")
-						.font(.karlRegular(size: 14))
-				}
-				.frame(maxWidth: .infinity, alignment: .leading)
-				HStack {
-					Image(systemName: "star.fill")
-						.font(.body)
-						.foregroundStyle(.buttonBlue)
-						.frame(width: 58, height: 55)
-						.cornerRadius(6)
-						.background(.buttonBlue.opacity(0.05))
-					VStack(alignment: .leading) {
-						Text("ADD TO FAVORITES")
-							.font(.karlRegular(size: 14))
-						Text("23 Items")
-							.font(.footnote)
-					}
-				}
-				.frame(maxWidth: .infinity, alignment: .leading)
-				HStack {
-					Image(systemName: "gear")
-						.font(.body)
-						.foregroundStyle(.buttonBlue)
-						.frame(width: 58, height: 55)
-						.cornerRadius(6)
-						.background(.buttonBlue.opacity(0.05))
-					VStack(alignment: .leading) {
-						Text("MORNING TASKS")
-							.font(.karlRegular(size: 14))
-						Text("10 Items")
-							.font(.footnote)
-					}
-				}
-				.frame(maxWidth: .infinity, alignment: .leading)
-				HStack {
-					Image(systemName: "pencil")
-						.font(.body)
-						.foregroundStyle(.buttonBlue)
-						.frame(width: 58, height: 55)
-						.cornerRadius(6)
-						.background(.buttonBlue.opacity(0.05))
-					VStack(alignment: .leading) {
-						Text("DAILY TASKS")
-							.font(.karlRegular(size: 14))
-						Text("1 Item")
-							.font(.footnote)
-					}
-				}
-				.frame(maxWidth: .infinity, alignment: .leading)
+				BottomSheetItemCard(title: "ADD TO NEW LIST", icon: "plus")
+				
+				BottomSheetItemCard(title: "ADD TO FAVORITES", icon: "star", footnote: "23 Items", hasDisclosureIcon: true)
+				
+				BottomSheetItemCard(title: "MORNING TASKS", icon: "sun", footnote: "10 Items", hasDisclosureIcon: true)
+				
+				BottomSheetItemCard(title: "DAILY TASKS", icon: "pen", footnote: "1 Item", hasDisclosureIcon: true)
 			}
 			.scrollIndicators(.hidden)
 		}
-		.padding(.horizontal, 8)
+		.padding(.horizontal, 18)
 		.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+	}
+	
+	// MARK: Bottom sheet Icon Image
+	@ViewBuilder
+	private func ImageIconCard(for icon: String) -> some View {
+		Image(icon)
+			.resizable()
+			.renderingMode(.template)
+			.aspectRatio(contentMode: .fit)
+			.frame(width: 21, height: 24)
+			.foregroundStyle(.buttonBlue.opacity(0.95))
+			.frame(width: 58, height: 55)
+			.cornerRadius(6)
+			.background(.buttonBlue.opacity(0.05))
+	}
+	
+	@ViewBuilder
+	private func BottomSheetItemCard(title: String, icon: String, footnote: String? = nil, hasDisclosureIcon: Bool = false) -> some View {
+		HStack(spacing: 16) {
+			ImageIconCard(for: icon)
+			VStack(alignment: .leading) {
+				Text(title)
+					.font(.karlRegular(size: 14))
+				if let footnote {
+					Text(footnote)
+						.font(.footnote)
+				}
+			}
+			.frame(maxWidth: .infinity, alignment: .leading)
+			
+			if hasDisclosureIcon {
+				Image(.backIcon)
+					.rotationEffect(.degrees(180))
+					.padding(.horizontal)
+			}
+		}
+		.frame(maxWidth: .infinity, alignment: .leading)
 	}
 }
 
