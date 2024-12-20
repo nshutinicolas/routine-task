@@ -7,11 +7,7 @@
 
 import SwiftUI
 
-// App Coordinator
-class AppCoordinator: ObservableObject {
-	@Published var path = NavigationPath()
-}
-
+// MARK: Bottom Tabs
 enum Tab: String, CaseIterable {
 	case home
 	case list
@@ -61,7 +57,7 @@ struct AppView: View {
 		}
     }
 	
-	// TODO: Fix Tab animation
+	// MARK: Custom Tab Item
 	@ViewBuilder
 	private func TabItem(tab: Tab) -> some View {
 		Image(tab.icon)

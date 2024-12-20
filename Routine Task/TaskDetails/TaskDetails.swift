@@ -59,6 +59,7 @@ struct TaskDetails: View {
 			.scrollIndicators(.hidden)
 		}
 		.safeAreaInset(edge: .bottom) {
+			// MARK: Add to List button
 			HStack {
 				Spacer()
 				Button {
@@ -127,24 +128,10 @@ struct TaskDetails: View {
 		VStack(spacing: 16) {
 			if let images = task.images {
 				Rectangle()
+					.fill(Color.clear)
 					.frame(height: 237)
 					.overlay {
-						Image(images.first ?? "")
-							.resizable()
-							.scaledToFill()
-					}
-					.overlay(alignment: .bottomLeading) {
-						HStack {
-							ForEach(images, id: \.self) { _ in
-								Circle()
-									.fill(.white)
-									.frame(width: 8, height: 8)
-									.onTapGesture {
-										// TODO: Handle changing images in a carousel
-									}
-							}
-						}
-						.padding()
+						ImageCarousel(images: images)
 					}
 					.cornerRadius(.init(width: 12, height: 12), corners: [.topLeft, .topRight])
 			}
@@ -274,22 +261,6 @@ struct TaskDetails: View {
 		}
 		.padding(.horizontal, 8)
 		.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-	}
-}
-
-struct RoundedCorners: Shape {
-	var radius: CGSize = .zero
-	var corners: UIRectCorner = .allCorners
-	
-	func path(in rect: CGRect) -> Path {
-		let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: radius)
-		return Path(path.cgPath)
-	}
-}
-
-extension View {
-	func cornerRadius(_ radius: CGSize, corners: UIRectCorner = .allCorners) -> some View {
-		clipShape(RoundedCorners(radius: radius, corners: corners))
 	}
 }
 

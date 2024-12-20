@@ -20,6 +20,10 @@
 		6C7086BC2D1533A0000F8420 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7086BB2D1533A0000F8420 /* AppView.swift */; };
 		6C7086BF2D153B0E000F8420 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7086BE2D153B0E000F8420 /* Font+Extension.swift */; };
 		6C7086C22D1541B8000F8420 /* TaskDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7086C12D1541B8000F8420 /* TaskDetails.swift */; };
+		6C7086C42D15BF74000F8420 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7086C32D15BF74000F8420 /* AppCoordinator.swift */; };
+		6C7086C62D15BFD2000F8420 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7086C52D15BFD2000F8420 /* UINavigationController+Extension.swift */; };
+		6C7086C82D15C4B5000F8420 /* RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7086C72D15C4B5000F8420 /* RoundedCorners.swift */; };
+		6C7086CB2D15C8BC000F8420 /* ImageCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7086CA2D15C8BC000F8420 /* ImageCarousel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		6C7086BB2D1533A0000F8420 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		6C7086BE2D153B0E000F8420 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		6C7086C12D1541B8000F8420 /* TaskDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetails.swift; sourceTree = "<group>"; };
+		6C7086C32D15BF74000F8420 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		6C7086C52D15BFD2000F8420 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
+		6C7086C72D15C4B5000F8420 /* RoundedCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorners.swift; sourceTree = "<group>"; };
+		6C7086CA2D15C8BC000F8420 /* ImageCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCarousel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +78,7 @@
 		6C70869D2D153043000F8420 /* Routine Task */ = {
 			isa = PBXGroup;
 			children = (
+				6C7086C92D15C8B1000F8420 /* Components */,
 				6C7086C02D1541A1000F8420 /* TaskDetails */,
 				6C7086BD2D153AFA000F8420 /* Extensions */,
 				6C7086BA2D15338C000F8420 /* App */,
@@ -108,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				6C7086BB2D1533A0000F8420 /* AppView.swift */,
+				6C7086C32D15BF74000F8420 /* AppCoordinator.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -116,6 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				6C7086BE2D153B0E000F8420 /* Font+Extension.swift */,
+				6C7086C52D15BFD2000F8420 /* UINavigationController+Extension.swift */,
+				6C7086C72D15C4B5000F8420 /* RoundedCorners.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -126,6 +138,14 @@
 				6C7086C12D1541B8000F8420 /* TaskDetails.swift */,
 			);
 			path = TaskDetails;
+			sourceTree = "<group>";
+		};
+		6C7086C92D15C8B1000F8420 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				6C7086CA2D15C8BC000F8420 /* ImageCarousel.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,9 +226,13 @@
 				6C7086BC2D1533A0000F8420 /* AppView.swift in Sources */,
 				6C7086BF2D153B0E000F8420 /* Font+Extension.swift in Sources */,
 				6C7086B92D15337E000F8420 /* HomeView.swift in Sources */,
+				6C7086C62D15BFD2000F8420 /* UINavigationController+Extension.swift in Sources */,
 				6C7086A12D153043000F8420 /* ContentView.swift in Sources */,
 				6C70869F2D153043000F8420 /* Routine_TaskApp.swift in Sources */,
 				6C7086C22D1541B8000F8420 /* TaskDetails.swift in Sources */,
+				6C7086CB2D15C8BC000F8420 /* ImageCarousel.swift in Sources */,
+				6C7086C82D15C4B5000F8420 /* RoundedCorners.swift in Sources */,
+				6C7086C42D15BF74000F8420 /* AppCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,16 +10,17 @@ import SwiftUI
 struct TaskModel: Hashable {
 	let image: String
 	let title: String
-}
-
-struct HomeView: View {
-	@EnvironmentObject private var coordinator: AppCoordinator
-	private var mockTasks: [TaskModel] = [
+	
+	static let mockData: [TaskModel] = [
 		.init(image: "image-1", title: "DETAILED MORNING ROUTINE TASKS"),
 		.init(image: "image-2", title: "DAILY WORKDAY FOCUS GOALS AND TASKS TO KEEP YOU ON TRACK"),
 		.init(image: "image-3", title: "EVENING WIND-DOWN ROUTINE GOALS"),
 		.init(image: "image-4", title: "COMPREHENSIVE SLEEP ROUTINE GOALS")
 	]
+}
+
+struct HomeView: View {
+	@EnvironmentObject private var coordinator: AppCoordinator
 	
     var body: some View {
 		VStack(spacing: 0) {
@@ -27,8 +28,8 @@ struct HomeView: View {
 			
 			ScrollView {
 				LazyVStack(spacing: 16) {
-					ForEach(mockTasks, id: \.hashValue) { task in
-						TaskItemView(for: task)
+					ForEach(TaskModel.mockData, id: \.hashValue) { task in
+						TaskItemCardView(for: task)
 							.onTapGesture {
 								coordinator.path.append(task)
 							}
@@ -45,6 +46,7 @@ struct HomeView: View {
 		}
     }
 	
+	// MARK: Header
 	var header: some View {
 		VStack {
 			Text("Home")
@@ -58,8 +60,9 @@ struct HomeView: View {
 		}
 	}
 	
+	// MARK: Item Card view
 	@ViewBuilder
-	private func TaskItemView(for task: TaskModel) -> some View {
+	private func TaskItemCardView(for task: TaskModel) -> some View {
 		HStack(spacing: 16) {
 			Rectangle()
 				.fill(Color.clear)
